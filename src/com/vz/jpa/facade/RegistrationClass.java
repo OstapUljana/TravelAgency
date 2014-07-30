@@ -17,27 +17,6 @@ import com.vz.jpa.dao.*;
 @Path("/reg")
 public class RegistrationClass {
 
-	 /* @POST()
-	  //@Consumes(MediaType.APPLICATION_JSON)
-	  @Produces(MediaType.APPLICATION_JSON)
-	  //@Produces("text/plain")
-	  public Response registrationClientForm(@FormParam("first_name") String name, 
-	  @FormParam("last_name") String surname,
-	  @FormParam("email") String email, 
-	  @FormParam("password") String password){
- 
-	 
-		  ClientDaoImpl enterClient = new ClientDaoImpl();  
-		  if ( enterClient.selectByEmail(email) == false ) {
-			  return (Response.ok().status(406).build());
-		  }	  
-		  else {
-			  Client client = new Client(name, surname, email, password);
-			  client = enterClient.insert(client);
-			  return (Response.ok(client).status(200).build().getEntity().toString());
-		  }
-	  }*/
-
 	  @POST()
 	  //@Consumes(MediaType.APPLICATION_JSON)
 	  @Produces(MediaType.APPLICATION_JSON)
