@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title> 7A - Login Form </title>
+
+    <link rel="stylesheet" href="css/login/login_style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="css/auth/auth_style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+  <body>
+	
+		<div class="login-wrapper">
+			<div class="app-title">
+				<h1>Login </h1>
+			</div>
+
+
+			<div class="login-form">
+
+   
+			
+			
+			       <form action="http://localhost:8080/TravelAgency/rest/login" method="POST">
+
+
+ <input type="email" id='@mail' required value="@mail" class="input__bordered"   name="login" required value="@mail" onBlur="if(this.value=='')this.value='@mail'" onFocus="if(this.value=='@mail')this.value='' " tabindex="1"/>
+
+
+
+<div class="control-group">
+                <input type="password" name="password" class="input__bordered" required value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value='' " tabindex="2"> <!-- JS because of IE support; better: placeholder="Password" -->
+</div>
+
+                <input type="submit"  class="btn-full-width btn-full-width" value="Login" href="main.html">
+</form>
+                <footer class="clearfix">
+
+                    <p><span class="info"></span><a href="#">Forgot Password</a> <a href="auth.html">Or Register</a></p></p>
+                    
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</body>
+
+</html>

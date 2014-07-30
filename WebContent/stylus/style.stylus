@@ -1,0 +1,103 @@
+body 
+  font-family 'Arial', sans-serif
+.login-wrapper
+  min-width 320px
+  max-width 320px
+  margin 50px auto 0
+
+gold_color = #F4C430
+
+input-base-height = 50px
+input-padding-vertical = 1rem
+input-padding-horizontal = 1rem
+input-border-radius = 6px
+input-base-font-size = 14px
+input-base-color = #000
+input-grey-color = #848484
+
+.login-wrapper
+  width 100%
+  padding 2rem
+  -webkit-box-sizing: border-box;
+  p
+    margin-top 1rem
+    text-align center
+    font-size .7rem
+    color input-grey-color
+  a
+    color gold_color
+    text-decoration none
+
+.btn-fb-connect
+	display block
+	padding .6rem 1rem
+	text-align center
+	color #fff
+	background #445fae
+	border-radius 0
+	font-size 1.1rem
+	line-height 1.7em
+	font-weight 700
+	.icon-facebook
+		position relative
+		top .3rem
+		float none
+		margin 0
+		height 25px
+		width 25px
+		margin-right .5rem
+
+.divider
+  position relative
+  padding input-padding-vertical 0
+  text-align center
+  height input-base-heught
+  &__text
+    display inline
+    padding 0 input-padding-horizontal
+    background #fff
+    position relative
+    z-index 2
+    color input-grey-color
+  &::after
+    content ''
+    display block
+    width 100%
+    border-bottom 1px solid input-grey-color
+    position absolute
+    top (input-base-height/2)
+
+.input
+  &__bordered
+    -webkit-box-sizing: border-box;
+    display block
+    width 100%
+    height input-base-height
+    max-height input-base-height
+    position relative
+    padding input-padding-vertical input-padding-horizontal
+    margin 0 0 input-padding-vertical
+    text-align center
+    border 2px solid gold_color
+    text-align left
+    font-size (input-base-font-size*1.2)
+    font-weight 100
+    &:active, &:focus
+      box-shadow none
+      outline none
+
+.btn-full-width
+  background gold_color
+  border none
+  text-transform uppercase
+  color #292927
+  font-size input-base-font-size*1.1
+  text
+  display block
+  max-width 100%
+  min-width 100%
+  width 100%
+  border-radius: 0px
+  height: 51px     
+    
+    

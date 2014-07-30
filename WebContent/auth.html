@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title> 7A -Registration form</title>
+
+  <link rel='stylesheet prefetch' href='http://mynameismatthieu.com/WOW/css/libs/animate.css'>
+
+    <link rel="stylesheet" href="css/auth/auth_style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+<div class="login-wrapper">
+  <form action="http://localhost:8080/TravelAgency/rest/reg" method="POST">
+    
+    <div class="btn-fb-connect">Connect with Facebook</div>
+    <div class="divider">
+      <div class="divider__text">OR</div>
+    </div>
+    <input type="text"  placeholder="First Name" name="first_name" id="first_name" class="input__bordered"  tabindex="1"/>
+    <input type="text" placeholder="Last Name" name="last_name" id="last_name" class="input__bordered"  tabindex="2"/>
+    <input type="text" placeholder="Email Adress" name="email" id="email" class="input__bordered" tabindex="3"/>
+    <input type="password" placeholder="Password" name="password" id="password" class="input__bordered" tabindex="4"/>
+    <input type="password" placeholder="Re-enter Password" id="password" class="input__bordered" tabindex="5"/>
+     
+    <input type="submit" value="register with Email" class="btn-full-width btn-full-width"/>
+  </form>
+  <p><a href="login.html">Or Log in</a> </p>
+ <!-- <p>By registering, you agree to our <a href="#">Term & Conditions</a></p> -->
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="js/auth.js"></script>
+
+</body>
+
+</html>
