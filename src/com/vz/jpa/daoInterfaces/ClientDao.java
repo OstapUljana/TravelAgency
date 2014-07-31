@@ -8,10 +8,10 @@ import java.util.List;
  * Created by SU on 16.07.2014.
  */
 public interface ClientDao {
+	public Client selectByEmailClient (String email);
     List<Client> selectAll();
     Client selectById(int id);
     Client selectByEmailandPassword(String email, String password);
-    boolean clientExistCheck(String email, String password);
     // List<Client> selectByEmailandPassword(String email, String password);
     boolean selectByEmail(String email);
     int update(Client client);
