@@ -62,7 +62,7 @@ public class MailSending {
         System.out.println("\n\n 3rd ===> Get Session and Send mail");
         Transport transport = getMailSession.getTransport("smtp");
         // Enter your correct gmail UserID and Password
-        transport.connect("smtp.gmail.com", "aleksandrkitaygora@gmail.com", "loveoflife");
+        transport.connect("smtp.gmail.com", "aleksandrkitaygora@gmail.com", "");
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
         transport.close();
     }
