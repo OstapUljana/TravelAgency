@@ -3,6 +3,7 @@ package com.vz.jpa.entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
@@ -11,8 +12,12 @@ import java.util.Collection;
 @XmlRootElement
 @Entity
 @Table (name = "hotel", schema = "travelagency")
-public class Hotel {
-    private int hotelId;
+public class Hotel implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6808037754424901637L;
+	private Integer hotelId;
     private String fullName;
     private String shortName;
     private String location;
@@ -32,14 +37,19 @@ public class Hotel {
     private City cityByCityId;
     private Service serviceByServiceId;
     private Collection<Tour> toursByHotelId;
+    
+    public Hotel(){
+    	
+    }
+    
 
     @Id
     @Column(name = "Hotel_id", nullable = false, insertable = true, updatable = true)
-    public int getHotelId() {
+    public Integer getHotelId() {
         return hotelId;
     }
 
-    public void setHotelId(int hotelId) {
+    public void setHotelId(Integer hotelId) {
         this.hotelId = hotelId;
     }
 

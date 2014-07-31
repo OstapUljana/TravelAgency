@@ -11,7 +11,7 @@ import java.util.List;
 public interface ToursDao {
     List<Tour> selectAllTours();
     Tour selectById(int tours_id);
-    public List<Tour> selectToursByParam (Date start_date, Date end_date, 
+    public List<Tour> selectToursByParam (/*Date start_date, Date end_date*/ 
     		Country end_Country, City end_City, Hotel hotel_id, Double price1, Double price2, 
     		Integer hot_tour, Integer stars, String type_of_hotel_room, Integer people);
     int update(Tour tour);

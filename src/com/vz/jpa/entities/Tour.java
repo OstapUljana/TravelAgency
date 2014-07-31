@@ -3,6 +3,7 @@ package com.vz.jpa.entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Collection;
 
@@ -12,8 +13,17 @@ import java.util.Collection;
 @XmlRootElement
 @Entity
 @Table (name = "tour", schema = "travelagency")
-public class Tour {
-    private Integer tourId;
+public class Tour implements Serializable {
+
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 411520485710320833L;
+		/**
+	 * 
+	 */
+
+	private Integer tourId;
     private String tourName;
     private Integer tourLength;
  //   @Temporal (TemporalType.DATE)
@@ -32,7 +42,7 @@ public class Tour {
     private City cityByEndCity;
     
     public Tour() {
-		super();
+		
 	}
 
 	public Tour(String tour_name, Integer tour_length, Date start_date,
@@ -63,7 +73,7 @@ public class Tour {
 	public Tour(String tour_name, int tour_length, Transport selectById,
 			Date start_date, Country selectById2, City selectById3,
 			Date end_date, Country selectById4, City selectById5,
-			Hotel selectById6, double price2, String description2, int hot_tour) {
+			Hotel selectById6, Double price2, String description2, int hot_tour) {
 		this.tourName = tour_name;
 		this.tourLength = tour_length;
 		this.transportByTransportId = selectById;

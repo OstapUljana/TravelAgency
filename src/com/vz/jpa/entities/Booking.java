@@ -1,10 +1,12 @@
 package com.vz.jpa.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by User on 24.07.2014.
  */
+@XmlRootElement
 @Entity
 public class Booking {
     private int bookingId;

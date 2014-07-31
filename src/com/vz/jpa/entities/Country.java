@@ -1,137 +1,174 @@
 package com.vz.jpa.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import java.util.Collection;
 
 /**
  * Created by User on 24.07.2014.
  */
+@XmlRootElement
 @Entity
 public class Country {
-    private int countryId;
-    private String country;
-    private String description;
-    private Collection<City> citiesByCountryId;
-    private Collection<Client> clientsByCountryId;
-    private Collection<Hotel> hotelsByCountryId;
-    private Collection<Tour> toursByCountryId;
-    private Collection<Tour> toursByCountryId_0;
-    private Collection<Transport> transportsByCountryId;
-    private Collection<Transport> transportsByCountryId_0;
+	private Integer countryId;
+	private String country;
+	private String description;
+	private Collection<City> citiesByCountryId;
+	private Collection<Client> clientsByCountryId;
+	private Collection<Hotel> hotelsByCountryId;
+	private Collection<Tour> toursByCountryId;
+	private Collection<Tour> toursByCountryId_0;
+	private Collection<Transport> transportsByCountryId;
+	private Collection<Transport> transportsByCountryId_0;
 
-    @Id
-    @Column(name = "Country_id", nullable = false, insertable = true, updatable = true)
-    public int getCountryId() {
-        return countryId;
-    }
+	public Country() {
 
-    public void setCountryId(int countryId) {
-        this.countryId = countryId;
-    }
+	}
 
-    @Basic
-    @Column(name = "Country", nullable = true, insertable = true, updatable = true, length = 45)
-    public String getCountry() {
-        return country;
-    }
+	public Country(Integer countryId, String country, String description,
+			Collection<City> citiesByCountryId,
+			Collection<Client> clientsByCountryId,
+			Collection<Hotel> hotelsByCountryId,
+			Collection<Tour> toursByCountryId,
+			Collection<Tour> toursByCountryId_0,
+			Collection<Transport> transportsByCountryId,
+			Collection<Transport> transportsByCountryId_0) {
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+		this.countryId=countryId;
+		this.country=country;
+		this.description=description;
+		this.citiesByCountryId = citiesByCountryId;
+		this.clientsByCountryId = clientsByCountryId;
+		this.hotelsByCountryId = hotelsByCountryId;
+		this.toursByCountryId = toursByCountryId;
+		this.toursByCountryId_0 = toursByCountryId_0;
+		this.transportsByCountryId = transportsByCountryId;
+		this.transportsByCountryId_0 = transportsByCountryId_0;
+	}
 
-    @Basic
-    @Column(name = "Description", nullable = true, insertable = true, updatable = true, length = 45)
-    public String getDescription() {
-        return description;
-    }
+	@Id
+	@Column(name = "Country_id", nullable = false, insertable = true, updatable = true)
+	public Integer getCountryId() {
+		return countryId;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setCountryId(Integer countryId) {
+		this.countryId = countryId;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Basic
+	@Column(name = "Country", nullable = true, insertable = true, updatable = true, length = 45)
+	public String getCountry() {
+		return country;
+	}
 
-        Country country1 = (Country) o;
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
-        if (countryId != country1.countryId) return false;
-        if (country != null ? !country.equals(country1.country) : country1.country != null) return false;
-        if (description != null ? !description.equals(country1.description) : country1.description != null)
-            return false;
+	@Basic
+	@Column(name = "Description", nullable = true, insertable = true, updatable = true, length = 45)
+	public String getDescription() {
+		return description;
+	}
 
-        return true;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = countryId;
-        result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-    @OneToMany(mappedBy = "countryByCountryId")
-    public Collection<City> getCitiesByCountryId() {
-        return citiesByCountryId;
-    }
+		Country country1 = (Country) o;
 
-    public void setCitiesByCountryId(Collection<City> citiesByCountryId) {
-        this.citiesByCountryId = citiesByCountryId;
-    }
+		if (countryId != country1.countryId)
+			return false;
+		if (country != null ? !country.equals(country1.country)
+				: country1.country != null)
+			return false;
+		if (description != null ? !description.equals(country1.description)
+				: country1.description != null)
+			return false;
 
-    @OneToMany(mappedBy = "countryByCountryId")
-    public Collection<Client> getClientsByCountryId() {
-        return clientsByCountryId;
-    }
+		return true;
+	}
 
-    public void setClientsByCountryId(Collection<Client> clientsByCountryId) {
-        this.clientsByCountryId = clientsByCountryId;
-    }
+	@Override
+	public int hashCode() {
+		int result = countryId;
+		result = 31 * result + (country != null ? country.hashCode() : 0);
+		result = 31 * result
+				+ (description != null ? description.hashCode() : 0);
+		return result;
+	}
 
-    @OneToMany(mappedBy = "countryByCountryId")
-    public Collection<Hotel> getHotelsByCountryId() {
-        return hotelsByCountryId;
-    }
+	@OneToMany(mappedBy = "countryByCountryId")
+	public Collection<City> getCitiesByCountryId() {
+		return citiesByCountryId;
+	}
 
-    public void setHotelsByCountryId(Collection<Hotel> hotelsByCountryId) {
-        this.hotelsByCountryId = hotelsByCountryId;
-    }
+	public void setCitiesByCountryId(Collection<City> citiesByCountryId) {
+		this.citiesByCountryId = citiesByCountryId;
+	}
 
-    @OneToMany(mappedBy = "countryByStartCountry")
-    public Collection<Tour> getToursByCountryId() {
-        return toursByCountryId;
-    }
+	@OneToMany(mappedBy = "countryByCountryId")
+	public Collection<Client> getClientsByCountryId() {
+		return clientsByCountryId;
+	}
 
-    public void setToursByCountryId(Collection<Tour> toursByCountryId) {
-        this.toursByCountryId = toursByCountryId;
-    }
+	public void setClientsByCountryId(Collection<Client> clientsByCountryId) {
+		this.clientsByCountryId = clientsByCountryId;
+	}
 
-    @OneToMany(mappedBy = "countryByEndCountry")
-    public Collection<Tour> getToursByCountryId_0() {
-        return toursByCountryId_0;
-    }
+	@OneToMany(mappedBy = "countryByCountryId")
+	public Collection<Hotel> getHotelsByCountryId() {
+		return hotelsByCountryId;
+	}
 
-    public void setToursByCountryId_0(Collection<Tour> toursByCountryId_0) {
-        this.toursByCountryId_0 = toursByCountryId_0;
-    }
+	public void setHotelsByCountryId(Collection<Hotel> hotelsByCountryId) {
+		this.hotelsByCountryId = hotelsByCountryId;
+	}
 
-    @OneToMany(mappedBy = "countryByShipmentCountry")
-    public Collection<Transport> getTransportsByCountryId() {
-        return transportsByCountryId;
-    }
+	@OneToMany(mappedBy = "countryByStartCountry")
+	public Collection<Tour> getToursByCountryId() {
+		return toursByCountryId;
+	}
 
-    public void setTransportsByCountryId(Collection<Transport> transportsByCountryId) {
-        this.transportsByCountryId = transportsByCountryId;
-    }
+	public void setToursByCountryId(Collection<Tour> toursByCountryId) {
+		this.toursByCountryId = toursByCountryId;
+	}
 
-    @OneToMany(mappedBy = "countryByArriveCountry")
-    public Collection<Transport> getTransportsByCountryId_0() {
-        return transportsByCountryId_0;
-    }
+	@OneToMany(mappedBy = "countryByEndCountry")
+	public Collection<Tour> getToursByCountryId_0() {
+		return toursByCountryId_0;
+	}
 
-    public void setTransportsByCountryId_0(Collection<Transport> transportsByCountryId_0) {
-        this.transportsByCountryId_0 = transportsByCountryId_0;
-    }
+	public void setToursByCountryId_0(Collection<Tour> toursByCountryId_0) {
+		this.toursByCountryId_0 = toursByCountryId_0;
+	}
+
+	@OneToMany(mappedBy = "countryByShipmentCountry")
+	public Collection<Transport> getTransportsByCountryId() {
+		return transportsByCountryId;
+	}
+
+	public void setTransportsByCountryId(
+			Collection<Transport> transportsByCountryId) {
+		this.transportsByCountryId = transportsByCountryId;
+	}
+
+	@OneToMany(mappedBy = "countryByArriveCountry")
+	public Collection<Transport> getTransportsByCountryId_0() {
+		return transportsByCountryId_0;
+	}
+
+	public void setTransportsByCountryId_0(
+			Collection<Transport> transportsByCountryId_0) {
+		this.transportsByCountryId_0 = transportsByCountryId_0;
+	}
 }
