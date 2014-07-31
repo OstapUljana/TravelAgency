@@ -36,10 +36,9 @@ public class AutorisationClass {
 				URI urlResponse = new URI("http://localhost:8080/TravelAgency");
 				return Response
 						.seeOther(urlResponse)
-						.cookie(new NewCookie("client id",
-								(ansver.getClientId()).toString()),
-								new NewCookie("client name", ansver.getName()),
-								new NewCookie("role", "user")).build();
+						.cookie(new NewCookie("client id",(ansver.getClientId()).toString(),"/","localhost"," ",-1,false),
+								new NewCookie("client name", ansver.getName(),"/","localhost"," ",-1,false),
+								new NewCookie("role", "user","/","localhost"," ",-1,false)).build();
 			} else {
 				return Response.ok().status(406).build();
 			}
