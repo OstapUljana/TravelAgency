@@ -3,7 +3,7 @@ package com.vz.jpa.entities;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Collection;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Collection;
 @Entity
 @Table (name = "client", schema = "travelagency")
 public class Client {
-    private Integer clientId;
+    private int clientId;
     private String name;
     private String surname;
     private Date birthday;
@@ -32,6 +32,7 @@ public class Client {
     public Client(){
     	
     }
+    
     public Client(String name, String surname, String email, String password){
     	this.name = name;
     	this.surname = surname;
@@ -39,12 +40,39 @@ public class Client {
     	this.password = password;
     }
 
-    @Id
-    @Column(name = "Client_id", nullable = false, insertable = true, updatable = true)
-    public Integer getClientId() {
-        return clientId;
-    }
+    public Client(String name2, String surname2, Date birthday2,
+			String sex2, String phone2, City city_id, String email2,
+			String password2, String passport2, Country country_id, int inn2,
+			String visa2) {
+    	this.name = name2;
+    	this.surname = surname2;
+    	this.birthday = birthday2;
+    	this.sex = sex2;
+    	this.phone = phone2;
+    	this.cityByCityId = city_id;
+    	this.passport = passport2;
+    	this.password = password2;
+    	this.inn = inn2;
+    	this.visa = visa2;   	
+    	this.eMail = email2;
+    	this.password = password2;
+	}
 
+
+	public Client(String email2, String password2) {
+		this.eMail = email2;
+		this.password  = password2;
+	}
+	
+	
+
+	@Id
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+	 @Column(name = "Client_id", nullable = false, insertable = true, updatable = true)
+	 public Integer getClientId() {
+	  return clientId;
+	 }
+	
     public void setClientId(int clientId) {
         this.clientId = clientId;
     }
@@ -200,9 +228,9 @@ public class Client {
     }
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "clientByClientId")
-    public Collection<Booking> getBookingsByClientId() {
-        return bookingsByClientId;
-    }
+	 public Collection<Booking> getBookingsByClientId() {
+	  return bookingsByClientId;
+	 }
 
     public void setBookingsByClientId(Collection<Booking> bookingsByClientId) {
         this.bookingsByClientId = bookingsByClientId;
