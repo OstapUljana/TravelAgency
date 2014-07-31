@@ -16,7 +16,7 @@ public class LogOutClass {
 		return Response
 				.ok()
 				.cookie(new NewCookie("client id", null),
-						new NewCookie("client email", null),
+						new NewCookie("client name", null),
 						new NewCookie("role", null)).build();
 	}
 }
