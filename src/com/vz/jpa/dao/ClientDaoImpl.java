@@ -143,9 +143,9 @@ public class ClientDaoImpl implements ClientDao {
         client1.setSurname(client.getSurname());
         client1.setSex(client.getSex());
         client1.setBirthday(client.getBirthday());
-        client1.setPhone(client.getPhone());/*
+        client1.setPhone(client.getPhone());
         client1.seteMail(client.geteMail());
-        client1.setPassword(client.getPassword());*/
+        client1.setPassword(client.getPassword());
         client1.setPassport(client.getPassport());
         client1.setInn(client.getInn());
         client1.setVisa(client.getVisa());
@@ -154,7 +154,7 @@ public class ClientDaoImpl implements ClientDao {
         entityManager.close();
         return 1;
     }
-    
+
     @Override    
     public Client insert(Client client){
         EntityManager entityManager = entityManagerFactory.createEntityManager();

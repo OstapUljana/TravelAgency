@@ -5,6 +5,7 @@
              version="2.0">
     <persistence-unit name="MySqlManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--<class>com.miholap.jpaEx.entities.Student</class>-->
         <class>com.vz.jpa.entities.Client</class>
         <class>com.vz.jpa.entities.Country</class>
         <class>com.vz.jpa.entities.City</class>

@@ -1,4 +1,4 @@
-/*package com.vz.jpa.facade;
+package com.vz.jpa.facade;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,23 +18,23 @@ import com.vz.jpa.entities.City;
 import com.vz.jpa.entities.Client;
 import com.vz.jpa.entities.Country;
 
-@Path("")
+@Path("/room")
 public class PersonalRoom  {
 
 	@POST()
 	// @Consumes(MediaType.APPLICATION_JSON)
 	//@Produces(MediaType.APPLICATION_JSON)
 	@Produces("text/plain")
-	static public String UpdateClient(@FormParam("name") String name, 
+	static public Response UpdateClient(@FormParam("name") String name, 
 				@FormParam("surname") String surname,
 				@FormParam("birthday") String birthday,
 				@FormParam("sex") String sex,
 				@FormParam("phone") String phone, 
-				@FormParam("city_id") int city_id,
+				@FormParam("country_id") int country_id,
+				@FormParam("city_id") int city_id,				
 				@FormParam("e_mail") String email,
 				@FormParam("password") String password,
-				@FormParam("passport") String passport, 
-				@FormParam("country_id") int country_id,
+				@FormParam("passport") String passport,
 				@FormParam("inn") int inn, 
 				@FormParam("visa") String visa, 
 			@HeaderParam("accept-charset") String headerParam) throws ParseException{
@@ -49,13 +49,12 @@ public class PersonalRoom  {
 		Client client = new Client(name, surname, sbirthday, sex, phone, enterCity.selectById(city_id),email,
 				password, passport, enterCountry.selectById(country_id), inn, visa);
 		enterClient.update(client);
-		return (Response.ok().entity(client).build().getEntity().toString());
+		return (Response.ok().entity(client).build());
 		
-		UserDaoImpl enterUser = new UserDaoImpl();
+		/*UserDaoImpl enterUser = new UserDaoImpl();
 		User ansver = enterUser.selectUser(login, pass);
-		return Response.ok(new GenericEntity<User>(ansver) {}).build();
+		return Response.ok(new GenericEntity<User>(ansver) {}).build();*/
 		//return Response.status(401).build();
 
 	}
 }
-*/
