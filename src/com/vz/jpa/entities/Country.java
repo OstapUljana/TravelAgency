@@ -14,7 +14,6 @@ public class Country {
 	private Integer countryId;
 	private String country;
 	private String description;
-	private Integer cityByCityId;
 	/*
 	private Collection<City> citiesByCountryId;
 	private Collection<Client> clientsByCountryId;
@@ -29,7 +28,7 @@ public class Country {
 
 	}
 
-	public Country(Integer countryId, String country, String description, Integer cityByCityId  /*,
+	public Country(Integer countryId, String country, String description  /*,
 			Collection<City> citiesByCountryId,
 			Collection<Client> clientsByCountryId,
 			Collection<Hotel> hotelsByCountryId,
@@ -41,7 +40,6 @@ public class Country {
 		this.countryId = countryId;
 		this.country = country;
 		this.description = description;
-		this.cityByCityId=cityByCityId;
 		/*
 		this.citiesByCountryId = citiesByCountryId;
 		this.clientsByCountryId = clientsByCountryId;
@@ -83,16 +81,7 @@ public class Country {
 		this.description = description;
 	}
 
-	@Basic
-	@Column(name = "City_id", nullable = false, insertable = true, updatable = true)
-	public Integer getCityByCityId() {
-		return cityByCityId;
-	}
 
-	public void setCityByCityId(Integer cityByCityId) {
-		this.cityByCityId = cityByCityId;
-	}
-	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -187,6 +176,15 @@ public class Country {
 	public void setTransportsByCountryId_0(
 			Collection<Transport> transportsByCountryId_0) {
 		this.transportsByCountryId_0 = transportsByCountryId_0;
+	}
+		@Basic
+	@Column(name = "City_id", nullable = false, insertable = true, updatable = true)
+	public Integer getCityByCityId() {
+		return cityByCityId;
+	}
+
+	public void setCityByCityId(Integer cityByCityId) {
+		this.cityByCityId = cityByCityId;
 	}
 	*/
 }
