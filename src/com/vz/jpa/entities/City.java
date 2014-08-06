@@ -10,6 +10,7 @@ import java.util.Collection;
  */
 @XmlRootElement
 @Entity
+@Table(name = "city", schema = "travelagency")
 public class City {
 	private Integer cityId;
 	private String name;

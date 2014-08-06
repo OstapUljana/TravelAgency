@@ -20,7 +20,7 @@ public class Tour implements Serializable {
 	private Integer tourId;
 	private String tourName;
 	private Integer tourLength;
-	private Transport transportByTransportId;
+	//private Transport transportByTransportId;
 	// @Temporal (TemporalType.DATE)
 	private Date startDate;
 	private Country countryByStartCountry;
@@ -48,7 +48,7 @@ public class Tour implements Serializable {
 		this.tourId = tourId;
 		this.tourName = tour_name;
 		this.tourLength = tour_length;
-		this.transportByTransportId = selectById;
+		//this.transportByTransportId = selectById;
 		this.startDate = start_date;
 		this.countryByStartCountry = selectById2;
 		this.cityByStartCity = selectById3;
@@ -67,7 +67,7 @@ public class Tour implements Serializable {
 			Hotel selectById6, Double price2, String description2, int hot_tour) {
 		this.tourName = tour_name;
 		this.tourLength = tour_length;
-		this.transportByTransportId = selectById;
+		//this.transportByTransportId = selectById;
 
 		this.startDate = start_date;
 		this.countryByStartCountry = selectById2;
@@ -113,6 +113,7 @@ public class Tour implements Serializable {
 		this.tourLength = tourLength;
 	}
 
+	/*
 	@ManyToOne
 	@JoinColumn(name = "Transport_id", referencedColumnName = "Transport_id")
 	public Transport getTransportByTransportId() {
@@ -122,7 +123,7 @@ public class Tour implements Serializable {
 	public void setTransportByTransportId(Transport transportByTransportId) {
 		this.transportByTransportId = transportByTransportId;
 	}
-
+*/
 	@Basic
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Start_date", nullable = true, insertable = true, updatable = true)

@@ -94,7 +94,7 @@ public class ToursDaoImpl implements ToursDao {
 		entityManager.getTransaction().begin();
 		tour1.setTourName(tour.getTourName());
 		tour1.setTourLength(tour.getTourLength());
-		tour1.setTransportByTransportId(tour.getTransportByTransportId());
+		//tour1.setTransportByTransportId(tour.getTransportByTransportId());
 
 		tour1.setStartDate(tour.getStartDate());
 		tour1.setCountryByStartCountry(tour.getCountryByStartCountry());

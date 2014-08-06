@@ -1,5 +1,7 @@
 package com.vz.jpa.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -10,6 +12,7 @@ import java.util.Collection;
  */
 @XmlRootElement
 @Entity
+@Table(name = "country", schema = "travelagency")
 public class Country {
 	private Integer countryId;
 	private String country;

@@ -12,7 +12,7 @@ import java.util.Collection;
 @Entity
 public class Service {
     private int serviceId;
-    private Collection<Hotel> hotelsByServiceId;
+    //private Collection<Hotel> hotelsByServiceId;
 
     @Id
     @Column(name = "Service_id", nullable = false, insertable = true, updatable = true)
@@ -40,7 +40,7 @@ public class Service {
     public int hashCode() {
         return serviceId;
     }
-
+/*
     @OneToMany(mappedBy = "serviceByServiceId")
     public Collection<Hotel> getHotelsByServiceId() {
         return hotelsByServiceId;
@@ -49,4 +49,5 @@ public class Service {
     public void setHotelsByServiceId(Collection<Hotel> hotelsByServiceId) {
         this.hotelsByServiceId = hotelsByServiceId;
     }
+    */
 }

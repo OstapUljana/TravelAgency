@@ -17,7 +17,7 @@ public class Transport {
     private Timestamp timeArrive;
     private Timestamp timeShip;
     private Double price;
-    private Collection<Tour> toursByTransportId;
+    //private Collection<Tour> toursByTransportId;
     private City cityByShipmentCity;
     private City cityByArriveCity;
     private Country countryByShipmentCountry;
@@ -99,7 +99,7 @@ public class Transport {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
-
+/*
     @OneToMany(mappedBy = "transportByTransportId")
     public Collection<Tour> getToursByTransportId() {
         return toursByTransportId;
@@ -108,6 +108,7 @@ public class Transport {
     public void setToursByTransportId(Collection<Tour> toursByTransportId) {
         this.toursByTransportId = toursByTransportId;
     }
+    */
 
     @ManyToOne
     @JoinColumn(name = "Shipment_city", referencedColumnName = "City_id")

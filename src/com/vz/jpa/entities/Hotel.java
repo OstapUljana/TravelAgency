@@ -35,8 +35,8 @@ public class Hotel implements Serializable {
     private String img;
     private Country countryByCountryId;
     private City cityByCityId;
-    private Service serviceByServiceId;
-    private Collection<Tour> toursByHotelId;
+    //private Service serviceByServiceId;
+    //private Collection<Tour> toursByHotelId;
     
     public Hotel(){
     	
@@ -271,7 +271,7 @@ public class Hotel implements Serializable {
     public void setCityByCityId(City cityByCityId) {
         this.cityByCityId = cityByCityId;
     }
-
+/*
     @ManyToOne
     @JoinColumn(name = "Service_id", referencedColumnName = "Service_id")
     public Service getServiceByServiceId() {
@@ -290,4 +290,5 @@ public class Hotel implements Serializable {
     public void setToursByHotelId(Collection<Tour> toursByHotelId) {
         this.toursByHotelId = toursByHotelId;
     }
+    */
 }
