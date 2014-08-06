@@ -23,8 +23,8 @@ public class SearchingClass {
 
 	@POST()
 	// @Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_XML)
-	//@Produces("text/plain")
+	@Produces(MediaType.APPLICATION_JSON)
+	// @Produces("text/plain")
 	public Response searchingTours(@FormParam("start_date") String start_date,
 			@FormParam("end_date") String end_date,
 			@FormParam("startCountry") int startCountry,
@@ -52,18 +52,21 @@ public class SearchingClass {
 
 		ToursDaoImpl enterTour = new ToursDaoImpl();
 		List<Tour> ansver = enterTour.selectToursByParam(
-				/* sDate, eDate, */enterCountry.selectById(end_Country),
+		/* sDate, eDate, */enterCountry.selectById(end_Country),
 				enterCity.selectById(end_City),
 				enterHotel.selectById(hotel_id), price1, price2, hot_tour,
 				stars, type_of_hotel_room, people);
 
+		
 		AnsverListClass ansverObject = new AnsverListClass(ansver);
-		for(Tour t:ansverObject.tourList){
-			System.out.println(t);
+		for(Tour t: ansverObject.tourList){
+			System.out.println(t.getTourId());
 		}
+		
 		System.out.println(ansver.isEmpty());
 		System.out.println(ansver);
-		return Response.ok(ansverObject).build()// .getEntity().toString()
+			
+		return Response.ok().entity(ansverObject).build()// .getEntity().toString()
 		;
 	}
 }

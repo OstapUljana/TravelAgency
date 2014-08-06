@@ -282,7 +282,7 @@ public class Hotel implements Serializable {
         this.serviceByServiceId = serviceByServiceId;
     }
 
-    @OneToMany(mappedBy = "hotelByHotelId")
+    @OneToMany(mappedBy = "hotelByHotelId",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Collection<Tour> getToursByHotelId() {
         return toursByHotelId;
     }

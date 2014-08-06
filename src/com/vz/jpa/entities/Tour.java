@@ -12,63 +12,54 @@ import java.util.Collection;
  */
 @XmlRootElement
 @Entity
-@Table (name = "tour", schema = "travelagency")
+@Table(name = "tour", schema = "travelagency")
 public class Tour implements Serializable {
 
-		/**
-	 * 
-	 */
 	private static final long serialVersionUID = 411520485710320833L;
-		/**
-	 * 
-	 */
 
 	private Integer tourId;
-    private String tourName;
-    private Integer tourLength;
- //   @Temporal (TemporalType.DATE)
-    private Date startDate;
- //   @Temporal (TemporalType.DATE)
-    private Date endDate;
-    private Double price;
-    private String description;
-    private Integer hotTour;
-    private Collection<Booking> bookingsByTourId;
-    private Transport transportByTransportId;
-    private Country countryByStartCountry;
-    private City cityByStartCity;
-    private Hotel hotelByHotelId;
-    private Country countryByEndCountry;
-    private City cityByEndCity;
-    
-    public Tour() {
-		
+	private String tourName;
+	private Integer tourLength;
+	private Transport transportByTransportId;
+	// @Temporal (TemporalType.DATE)
+	private Date startDate;
+	private Country countryByStartCountry;
+	private City cityByStartCity;
+	// @Temporal (TemporalType.DATE)
+	private Date endDate;
+	private Country countryByEndCountry;
+	private City cityByEndCity;
+	private Hotel hotelByHotelId;
+	private Double price;
+	private String description;
+	private Integer hotTour;
+
+	// private Collection<Booking> bookingsByTourId;
+
+	public Tour() {
+
 	}
 
-	public Tour(String tour_name, Integer tour_length, Date start_date,
-			Date end_date, Double price2, String description2,
+	public Tour(Integer tourId, String tour_name, Integer tour_length,
+			Date start_date, Date end_date, Double price2, String description2,
 			Integer hot_tour, Transport selectById, Country selectById2,
 			City selectById3, Hotel selectById4, Country selectById5,
 			City selectById6) {
+		this.tourId = tourId;
 		this.tourName = tour_name;
 		this.tourLength = tour_length;
 		this.transportByTransportId = selectById;
-		
 		this.startDate = start_date;
 		this.countryByStartCountry = selectById2;
 		this.cityByStartCity = selectById3;
-		
 		this.endDate = end_date;
 		this.countryByEndCountry = selectById5;
 		this.cityByEndCity = selectById6;
-		
 		this.hotelByHotelId = selectById4;
-		this.price = price2; 
+		this.price = price2;
 		this.description = description2;
 		this.hotTour = hot_tour;
 	}
-
-
 
 	public Tour(String tour_name, int tour_length, Transport selectById,
 			Date start_date, Country selectById2, City selectById3,
@@ -77,201 +68,216 @@ public class Tour implements Serializable {
 		this.tourName = tour_name;
 		this.tourLength = tour_length;
 		this.transportByTransportId = selectById;
-		
+
 		this.startDate = start_date;
 		this.countryByStartCountry = selectById2;
 		this.cityByStartCity = selectById3;
-		
+
 		this.endDate = end_date;
 		this.countryByEndCountry = selectById4;
 		this.cityByEndCity = selectById5;
-		
+
 		this.hotelByHotelId = selectById6;
-		this.price = price2; 
+		this.price = price2;
 		this.description = description2;
 		this.hotTour = hot_tour;
 	}
 
 	@Id
-    @Column(name = "Tour_id", nullable = false, insertable = true, updatable = true)
-    public Integer getTourId() {
-        return tourId;
-    }
+	@Column(name = "Tour_id", nullable = false, insertable = true, updatable = true)
+	public Integer getTourId() {
+		return tourId;
+	}
 
-    public void setTourId(int tourId) {
-        this.tourId = tourId;
-    }
+	public void setTourId(int tourId) {
+		this.tourId = tourId;
+	}
 
-    @Basic
-    @Column(name = "Tour_name", nullable = true, insertable = true, updatable = true, length = 45)
-    public String getTourName() {
-        return tourName;
-    }
+	@Basic
+	@Column(name = "Tour_name", nullable = true, insertable = true, updatable = true, length = 45)
+	public String getTourName() {
+		return tourName;
+	}
 
-    public void setTourName(String tourName) {
-        this.tourName = tourName;
-    }
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
 
-    @Basic
-    @Column(name = "Tour_length", nullable = true, insertable = true, updatable = true)
-    public Integer getTourLength() {
-        return tourLength;
-    }
+	@Basic
+	@Column(name = "Tour_length", nullable = true, insertable = true, updatable = true)
+	public Integer getTourLength() {
+		return tourLength;
+	}
 
-    public void setTourLength(Integer tourLength) {
-        this.tourLength = tourLength;
-    }
+	public void setTourLength(Integer tourLength) {
+		this.tourLength = tourLength;
+	}
 
-    @Basic
-    @Temporal (TemporalType.DATE)
-    @Column(name = "Start_date", nullable = true, insertable = true, updatable = true)
-    public Date getStartDate() {
-        return startDate;
-    }
+	@ManyToOne
+	@JoinColumn(name = "Transport_id", referencedColumnName = "Transport_id")
+	public Transport getTransportByTransportId() {
+		return transportByTransportId;
+	}
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
+	public void setTransportByTransportId(Transport transportByTransportId) {
+		this.transportByTransportId = transportByTransportId;
+	}
 
-    @Basic
-    @Temporal (TemporalType.DATE)
-    @Column(name = "End_date", nullable = true, insertable = true, updatable = true)
-    public Date getEndDate() {
-        return endDate;
-    }
+	@Basic
+	@Temporal(TemporalType.DATE)
+	@Column(name = "Start_date", nullable = true, insertable = true, updatable = true)
+	public Date getStartDate() {
+		return startDate;
+	}
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 
-    @Basic
-    @Column(name = "Price", nullable = true, insertable = true, updatable = true, precision = 0)
-    public Double getPrice() {
-        return price;
-    }
+	@ManyToOne
+	@JoinColumn(name = "Start_Country", referencedColumnName = "Country_id")
+	public Country getCountryByStartCountry() {
+		return countryByStartCountry;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public void setCountryByStartCountry(Country countryByStartCountry) {
+		this.countryByStartCountry = countryByStartCountry;
+	}
 
-    @Basic
-    @Column(name = "Description", nullable = true, insertable = true, updatable = true, length = 255)
-    public String getDescription() {
-        return description;
-    }
+	@ManyToOne
+	@JoinColumn(name = "Start_City", referencedColumnName = "City_id")
+	public City getCityByStartCity() {
+		return cityByStartCity;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setCityByStartCity(City cityByStartCity) {
+		this.cityByStartCity = cityByStartCity;
+	}
 
-    @Basic
-    @Column(name = "Hot_tour", nullable = true, insertable = true, updatable = true)
-    public Integer getHotTour() {
-        return hotTour;
-    }
+	@Basic
+	@Temporal(TemporalType.DATE)
+	@Column(name = "End_date", nullable = true, insertable = true, updatable = true)
+	public Date getEndDate() {
+		return endDate;
+	}
 
-    public void setHotTour(Integer hotTour) {
-        this.hotTour = hotTour;
-    }
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@ManyToOne
+	@JoinColumn(name = "End_Country", referencedColumnName = "Country_id")
+	public Country getCountryByEndCountry() {
+		return countryByEndCountry;
+	}
 
-        Tour tour = (Tour) o;
+	public void setCountryByEndCountry(Country countryByEndCountry) {
+		this.countryByEndCountry = countryByEndCountry;
+	}
 
-        if (tourId != tour.tourId) return false;
-        if (description != null ? !description.equals(tour.description) : tour.description != null) return false;
-        if (endDate != null ? !endDate.equals(tour.endDate) : tour.endDate != null) return false;
-        if (hotTour != null ? !hotTour.equals(tour.hotTour) : tour.hotTour != null) return false;
-        if (price != null ? !price.equals(tour.price) : tour.price != null) return false;
-        if (startDate != null ? !startDate.equals(tour.startDate) : tour.startDate != null) return false;
-        if (tourLength != null ? !tourLength.equals(tour.tourLength) : tour.tourLength != null) return false;
-        if (tourName != null ? !tourName.equals(tour.tourName) : tour.tourName != null) return false;
+	@ManyToOne
+	@JoinColumn(name = "End_City", referencedColumnName = "City_id")
+	public City getCityByEndCity() {
+		return cityByEndCity;
+	}
 
-        return true;
-    }
+	public void setCityByEndCity(City cityByEndCity) {
+		this.cityByEndCity = cityByEndCity;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = tourId;
-        result = 31 * result + (tourName != null ? tourName.hashCode() : 0);
-        result = 31 * result + (tourLength != null ? tourLength.hashCode() : 0);
-        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
-        result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (hotTour != null ? hotTour.hashCode() : 0);
-        return result;
-    }
+	@ManyToOne
+	@JoinColumn(name = "Hotel_id", referencedColumnName = "Hotel_id")
+	public Hotel getHotelByHotelId() {
+		return hotelByHotelId;
+	}
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "tourByTourId")
-    public Collection<Booking> getBookingsByTourId() {
-        return bookingsByTourId;
-    }
+	public void setHotelByHotelId(Hotel hotelByHotelId) {
+		this.hotelByHotelId = hotelByHotelId;
+	}
 
-    public void setBookingsByTourId(Collection<Booking> bookingsByTourId) {
-        this.bookingsByTourId = bookingsByTourId;
-    }
+	@Basic
+	@Column(name = "Price", nullable = true, insertable = true, updatable = true, precision = 0)
+	public Double getPrice() {
+		return price;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "Transport_id", referencedColumnName = "Transport_id")
-    public Transport getTransportByTransportId() {
-        return transportByTransportId;
-    }
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public void setTransportByTransportId(Transport transportByTransportId) {
-        this.transportByTransportId = transportByTransportId;
-    }
+	@Basic
+	@Column(name = "Description", nullable = true, insertable = true, updatable = true, length = 255)
+	public String getDescription() {
+		return description;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "Start_Country", referencedColumnName = "Country_id")
-    public Country getCountryByStartCountry() {
-        return countryByStartCountry;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setCountryByStartCountry(Country countryByStartCountry) {
-        this.countryByStartCountry = countryByStartCountry;
-    }
+	@Basic
+	@Column(name = "Hot_tour", nullable = true, insertable = true, updatable = true)
+	public Integer getHotTour() {
+		return hotTour;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "Start_City", referencedColumnName = "City_id")
-    public City getCityByStartCity() {
-        return cityByStartCity;
-    }
+	public void setHotTour(Integer hotTour) {
+		this.hotTour = hotTour;
+	}
 
-    public void setCityByStartCity(City cityByStartCity) {
-        this.cityByStartCity = cityByStartCity;
-    }
+	/*
+	 * @OneToMany(fetch = FetchType.EAGER, mappedBy = "tourByTourId") public
+	 * Collection<Booking> getBookingsByTourId() { return bookingsByTourId; }
+	 * 
+	 * public void setBookingsByTourId(Collection<Booking> bookingsByTourId) {
+	 * this.bookingsByTourId = bookingsByTourId; }
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-    @ManyToOne
-    @JoinColumn(name = "Hotel_id", referencedColumnName = "Hotel_id")
-    public Hotel getHotelByHotelId() {
-        return hotelByHotelId;
-    }
+		Tour tour = (Tour) o;
 
-    public void setHotelByHotelId(Hotel hotelByHotelId) {
-        this.hotelByHotelId = hotelByHotelId;
-    }
+		if (tourId != tour.tourId)
+			return false;
+		if (description != null ? !description.equals(tour.description)
+				: tour.description != null)
+			return false;
+		if (endDate != null ? !endDate.equals(tour.endDate)
+				: tour.endDate != null)
+			return false;
+		if (hotTour != null ? !hotTour.equals(tour.hotTour)
+				: tour.hotTour != null)
+			return false;
+		if (price != null ? !price.equals(tour.price) : tour.price != null)
+			return false;
+		if (startDate != null ? !startDate.equals(tour.startDate)
+				: tour.startDate != null)
+			return false;
+		if (tourLength != null ? !tourLength.equals(tour.tourLength)
+				: tour.tourLength != null)
+			return false;
+		if (tourName != null ? !tourName.equals(tour.tourName)
+				: tour.tourName != null)
+			return false;
 
-    @ManyToOne
-    @JoinColumn(name = "End_Country", referencedColumnName = "Country_id")
-    public Country getCountryByEndCountry() {
-        return countryByEndCountry;
-    }
+		return true;
+	}
 
-    public void setCountryByEndCountry(Country countryByEndCountry) {
-        this.countryByEndCountry = countryByEndCountry;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "End_City", referencedColumnName = "City_id")
-    public City getCityByEndCity() {
-        return cityByEndCity;
-    }
-
-    public void setCityByEndCity(City cityByEndCity) {
-        this.cityByEndCity = cityByEndCity;
-    }
+	@Override
+	public int hashCode() {
+		int result = tourId;
+		result = 31 * result + (tourName != null ? tourName.hashCode() : 0);
+		result = 31 * result + (tourLength != null ? tourLength.hashCode() : 0);
+		result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
+		result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
+		result = 31 * result + (price != null ? price.hashCode() : 0);
+		result = 31 * result
+				+ (description != null ? description.hashCode() : 0);
+		result = 31 * result + (hotTour != null ? hotTour.hashCode() : 0);
+		return result;
+	}
 }

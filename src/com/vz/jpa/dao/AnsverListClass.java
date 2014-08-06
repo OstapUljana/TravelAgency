@@ -15,7 +15,7 @@ public class AnsverListClass {
 	public AnsverListClass() {
 	}
 
-	public AnsverListClass(List<Tour> tours) {
-		tourList = tours;
+	public AnsverListClass(List<Tour> ansver) {
+		tourList = ansver;
 	}
 }

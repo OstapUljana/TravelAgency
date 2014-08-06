@@ -14,6 +14,8 @@ public class Country {
 	private Integer countryId;
 	private String country;
 	private String description;
+	private Integer cityByCityId;
+	/*
 	private Collection<City> citiesByCountryId;
 	private Collection<Client> clientsByCountryId;
 	private Collection<Hotel> hotelsByCountryId;
@@ -21,23 +23,26 @@ public class Country {
 	private Collection<Tour> toursByCountryId_0;
 	private Collection<Transport> transportsByCountryId;
 	private Collection<Transport> transportsByCountryId_0;
+	*/
 
 	public Country() {
 
 	}
 
-	public Country(Integer countryId, String country, String description,
+	public Country(Integer countryId, String country, String description, Integer cityByCityId  /*,
 			Collection<City> citiesByCountryId,
 			Collection<Client> clientsByCountryId,
 			Collection<Hotel> hotelsByCountryId,
 			Collection<Tour> toursByCountryId,
 			Collection<Tour> toursByCountryId_0,
 			Collection<Transport> transportsByCountryId,
-			Collection<Transport> transportsByCountryId_0) {
+			Collection<Transport> transportsByCountryId_0*/) {
 
-		this.countryId=countryId;
-		this.country=country;
-		this.description=description;
+		this.countryId = countryId;
+		this.country = country;
+		this.description = description;
+		this.cityByCityId=cityByCityId;
+		/*
 		this.citiesByCountryId = citiesByCountryId;
 		this.clientsByCountryId = clientsByCountryId;
 		this.hotelsByCountryId = hotelsByCountryId;
@@ -45,6 +50,7 @@ public class Country {
 		this.toursByCountryId_0 = toursByCountryId_0;
 		this.transportsByCountryId = transportsByCountryId;
 		this.transportsByCountryId_0 = transportsByCountryId_0;
+		*/
 	}
 
 	@Id
@@ -77,6 +83,16 @@ public class Country {
 		this.description = description;
 	}
 
+	@Basic
+	@Column(name = "City_id", nullable = false, insertable = true, updatable = true)
+	public Integer getCityByCityId() {
+		return cityByCityId;
+	}
+
+	public void setCityByCityId(Integer cityByCityId) {
+		this.cityByCityId = cityByCityId;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -107,7 +123,8 @@ public class Country {
 		return result;
 	}
 
-	@OneToMany(mappedBy = "countryByCountryId")
+	/*
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "countryByCountryId")
 	public Collection<City> getCitiesByCountryId() {
 		return citiesByCountryId;
 	}
@@ -171,4 +188,5 @@ public class Country {
 			Collection<Transport> transportsByCountryId_0) {
 		this.transportsByCountryId_0 = transportsByCountryId_0;
 	}
+	*/
 }

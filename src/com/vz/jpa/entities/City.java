@@ -14,34 +14,37 @@ public class City {
 	private Integer cityId;
 	private String name;
 	private Country countryByCountryId;
+	/*
 	private Collection<Client> clientsByCityId;
 	private Collection<Hotel> hotelsByCityId;
 	private Collection<Tour> toursByCityId;
 	private Collection<Tour> toursByCityId_0;
 	private Collection<Transport> transportsByCityId;
 	private Collection<Transport> transportsByCityId_0;
-
+*/
 	public City() {
 
 	}
 
-	public City(Integer cityId, String name, Country countryByCountryId,
+	public City(Integer cityId, String name, Country countryByCountryId /*,
 			Collection<Client> clientsByCityId,
-			Collection<Hotel> hotelsByCityId,
-			Collection<Tour> toursByCityId,
+			Collection<Hotel> hotelsByCityId, Collection<Tour> toursByCityId,
 			Collection<Tour> toursByCityId_0,
 			Collection<Transport> transportsByCityId,
-			Collection<Transport> transportsByCityId_0) {
+			Collection<Transport> transportsByCityId_0
+			*/) {
 
-		this.cityId=cityId;
-		this.name=name;
-		this.countryByCountryId=countryByCountryId;
+		this.cityId = cityId;
+		this.name = name;
+		this.countryByCountryId = countryByCountryId;
+		/*
 		this.clientsByCityId = clientsByCityId;
 		this.hotelsByCityId = hotelsByCityId;
 		this.toursByCityId = toursByCityId;
 		this.toursByCityId_0 = toursByCityId_0;
 		this.transportsByCityId = transportsByCityId;
 		this.transportsByCityId_0 = transportsByCityId_0;
+		*/
 	}
 
 	@Id
@@ -98,7 +101,8 @@ public class City {
 		this.countryByCountryId = countryByCountryId;
 	}
 
-	@OneToMany(mappedBy = "cityByCityId")
+	/*
+	@OneToMany(fetch = FetchType.EAGER ,mappedBy = "cityByCityId")
 	public Collection<Client> getClientsByCityId() {
 		return clientsByCityId;
 	}
@@ -152,4 +156,5 @@ public class City {
 			Collection<Transport> transportsByCityId_0) {
 		this.transportsByCityId_0 = transportsByCityId_0;
 	}
+	*/
 }

@@ -6,6 +6,7 @@ import com.vz.jpa.entities.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,8 +38,8 @@ public class ToursDaoImpl implements ToursDao {
 			String type_of_hotel_room, Integer people) {
 		EntityManager entityManager = entityManagerFactory
 				.createEntityManager();
-		Query query = entityManager.createQuery(/*"SELECT t, h "*/
-				"SELECT NEW com.vz.jpa.entities.Tour(t.hotelByHotelId, t.countryByEndCountry, t.cityByEndCity, t.hotelByHotelId,t.price,t.hotTour,h.people) "
+		TypedQuery<Tour> query = entityManager.createQuery(/*"SELECT t, h "*/
+				"SELECT t "
 				+ "FROM Tour t "
 				+ "JOIN t.hotelByHotelId h "
 				+ "WHERE "
@@ -64,7 +65,7 @@ public class ToursDaoImpl implements ToursDao {
 		query.setParameter("stars", stars);
 		// query.setParameter("type_of_hotel_room", type_of_hotel_room);
 		query.setParameter("people", people);
-		List<Tour> tourses =  query.getResultList();
+		List<Tour> tourses =query.getResultList();
 		entityManager.close();
 		return tourses;
 	}
